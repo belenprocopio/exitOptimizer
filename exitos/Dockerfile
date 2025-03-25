@@ -8,11 +8,10 @@ RUN apt update \
     && pip install pandas numpy 
 
 #afegim els fitxers del servidor dins el container de docker
-ADD ./rootfs/server.py .
-ADD ./rootfs/bottle.py .
-ADD ./rootfs/sqlDB.py .
-COPY ./rootfs/www /www/
-COPY ./rootfs/images/ /images/
+ADD ./rootfs/BESS_lab.py .
+ADD ./rootfs/OS_lab.py .
+# COPY ./rootfs/www /www/
+# COPY ./rootfs/images/ /images/
 #COPY ./rootfs/optimalScheduler /optimalScheduler/
 
 COPY config.yaml config.yaml
