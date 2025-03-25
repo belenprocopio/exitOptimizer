@@ -1,14 +1,14 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 
 #nom de l'add-on name es user freandly name i slug ha de ser un id unic.
-name: "exitOS"
-slug: exitos
+name: "exitOptimizer"
+slug: exitoptimizer
 
 #descripcions i altres coses sobre el nostre addon
 description: "Scheduler & optimizer add-on for smart grids for energy management and cost savings."
 version: "1.1"
 
-url: "https://github.com/llorencburgas/exitOS"
+url: "https://github.com//belenprocopio/exitOptimizer"
 #si colem que s'auto inicii per defecte (l'usuari ho podra canviar)
 init: false
 
