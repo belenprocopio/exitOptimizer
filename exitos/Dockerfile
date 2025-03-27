@@ -8,9 +8,9 @@ RUN apt update \
     && pip install requests pandas scikit-learn psutil numpy holidays tomli func_timeout schedule plotly
 
 #afegim els fitxers del servidor dins el container de docker
-ADD ./rootfs/server.py .
-ADD ./rootfs/bottle.py .
-ADD ./rootfs/sqlDB.py .
+# ADD ./rootfs/server.py .
+# ADD ./rootfs/bottle.py .
+# ADD ./rootfs/sqlDB.py .
 ADD ./rootfs/BESS_lab.py .
 ADD ./rootfs/OS_lab.py .
 # COPY ./rootfs/www /www/
