@@ -3,6 +3,6 @@
 echo "Creem la carpeta (/share/exitos/) si no existeix, aqui guardarem fitxers persistents."
 mkdir -p /share/exitos/
 
-echo "Starting server.py..."
+echo "Starting OS_lab.py..."
 python3 OS_lab.py
 
