@@ -5,4 +5,4 @@
 
 echo "Starting OS_lab.py..."
 python3 OS_lab.py
-python3 server.py
+# python3 server.py
