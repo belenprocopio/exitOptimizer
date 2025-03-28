@@ -24,17 +24,17 @@ headers = {
 #Llegim les dades de la url
 response = get(url, headers=headers).json()
 
-# if response.status_code == 200:
-#     try:
-sensor_data_historic = pd.json_normalize(response.json())
-#     except ValueError as e:
-#         print("Error parsing JSON: " + str(e))
-# elif response.status_code == 500:
-#     print("Server error (500): Internal server error at sensor ", id_sensor)
-#     sensor_data_historic = pd.DataFrame()
-# else:
-#     print("Request failed with status code: ", response.status_code)
-#     sensor_data_historic = pd.DataFrame()
+if response.status_code == 200:
+    try:
+        sensor_data_historic = pd.json_normalize(response.json())
+    except ValueError as e:
+        print("Error parsing JSON: " + str(e))
+elif response.status_code == 500:
+    print("Server error (500): Internal server error at sensor ", id_sensor)
+    sensor_data_historic = pd.DataFrame()
+else:
+    print("Request failed with status code: ", response.status_code)
+    sensor_data_historic = pd.DataFrame()
     
 print("Hem llegit:")
 print(sensor_data_historic)
