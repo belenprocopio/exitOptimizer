@@ -6,11 +6,11 @@ import os
 token = os.environ.get('SUPERVISOR_TOKEN')
 
 #periode que necesitem.
-t_ini="2023-10-01T00:00:00"
-t_fi="2023-10-25T00:00:00"
+t_ini="2025-03-26T00:00:00"
+t_fi="2025-03-27T00:00:00"
 
 #especifiquem Id que volem
-id_sensor = "sensor.esp32_gtmeas_sistema_termic_temperatura_diposit"
+id_sensor = "sensor.sunvec_capacidad_bateria_master"
              
 
 #preparem la url de la api corresponent a la id i periode que volem descarregar
