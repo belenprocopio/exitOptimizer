@@ -1,0 +1,10 @@
+entity_id,state,last_changed
+sensor.sunvec_capacidad_bateria_master,28,2025-03-12T23:00:00.000Z
+sensor.sunvec_capacidad_bateria_master,27,2025-03-13T06:58:46.028Z
+sensor.sunvec_capacidad_bateria_master,26,2025-03-13T11:29:45.749Z
+sensor.sunvec_capacidad_bateria_master,unavailable,2025-03-13T13:18:29.153Z
+sensor.sunvec_capacidad_bateria_master,26,2025-03-13T13:18:30.549Z
+sensor.sunvec_capacidad_bateria_master,unavailable,2025-03-13T15:06:53.716Z
+sensor.sunvec_capacidad_bateria_master,unknown,2025-03-13T15:07:06.517Z
+sensor.sunvec_capacidad_bateria_master,26,2025-03-13T15:07:07.890Z
+sensor.sunvec_capacidad_bateria_master,25,2025-03-13T17:24:00.449Z
