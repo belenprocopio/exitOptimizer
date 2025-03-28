@@ -38,3 +38,5 @@ else:
     
 print("Hem llegit:")
 print(sensor_data_historic)
+print("Response:")
+print(response)
