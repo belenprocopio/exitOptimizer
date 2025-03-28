@@ -39,6 +39,4 @@ else:
 print("Hem llegit:")
 print(sensor_data_historic)
 print("Ultimo valor:")
-print(sensor_data_historic[23][0]['state'])
-# print(sensor_data_historic['state'][len(sensor_data_historic)-1])
-# sensor_data_historic["last_changed"] = pd.to_datetime(sensor_data_historic["last_changed"])
+print(sensor_data_historic[24][0]['state'])
