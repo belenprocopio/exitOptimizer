@@ -26,7 +26,7 @@ response = get(url, headers=headers).json()
 
 # if response.status_code == 200:
 #     try:
-        sensor_data_historic = pd.json_normalize(response.json())
+sensor_data_historic = pd.json_normalize(response.json())
 #     except ValueError as e:
 #         print("Error parsing JSON: " + str(e))
 # elif response.status_code == 500:
