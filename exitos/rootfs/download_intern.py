@@ -41,6 +41,7 @@ print(sensor_data_historic)
 df_sensor = pd.DataFrame([[sensor_data_historic[col][0]['state'],sensor_data_historic[col][0]['last_changed']] for col in sensor_data_historic.columns if col != 0], columns=["state","last_changed"])
 print(df_sensor)
 
+df_sensor["last_changed"] = pd.to_datetime(df_sensor["last_changed"])
 df_resampled = df_sensor.set_index("last_changed").resample("1h").first().reset_index().fillna(0)
 df_resampled["state"] = pd.to_numeric(df_resampled["state"],errors='coerce')
 print('Resampled:')
