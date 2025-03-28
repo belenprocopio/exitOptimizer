@@ -22,7 +22,7 @@ headers = {
 }
 
 #Llegim les dades de la url
-response = get(url, headers=headers).json()
+response = get(url, headers=headers)
 
 if response.status_code == 200:
     try:
