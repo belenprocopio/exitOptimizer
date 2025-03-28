@@ -14,9 +14,7 @@ RUN apt update \
 ADD ./rootfs/BESS_lab.py .
 ADD ./rootfs/OS_lab.py .
 ADD ./rootfs/test_OS.py .
-ADD ./rootfs/datos/potencia_ct.csv .
-ADD ./rootfs/datos/paneles_master.csv .
-ADD ./rootfs/datos/paneles_slave.csv .
+ADD ./rootfs/download_intern.py .
 # COPY ./rootfs/www /www/
 # COPY ./rootfs/images/ /images/
 #COPY ./rootfs/optimalScheduler /optimalScheduler/
