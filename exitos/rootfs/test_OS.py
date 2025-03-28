@@ -13,9 +13,9 @@ bat = 0.5
 
 optimizer = OS_lab.OS_lab(building_dem=Loads,solar_prod=PV,bat_inicial=bat)
 
-
+print("Optimizando")
 BESS = optimizer.optimize()
-
+print("Optimizacion Finalizada")
 
 #Calculem la flexivilitat de la solucio trobada.
 #### Bateria
@@ -23,23 +23,25 @@ import BESS_lab as BESS_lab
 
 SoC = bat 
 bateria = BESS_lab.BESS_lab(SoC,debug=False) #SoC inicial en tant per 1
-
+print("Calculando Potencia")
 #Calculem el power min i max que podrem posar /treure de la bateria segons el metode de control seleccionat i forcasts
 c=[]
 for i in range(0,24):
     c.append(bateria.control(method=BESS[i],load = Loads[i], production = PV[i]))
-
+print("Potencia Calculada")
+print("Simulando")
 #donat el control Fem la simulacio.
 kwh, SoC = bateria.simula(c)
+print("Simulacion Finalizada")
 
-#donada la simulacio calculem flexivilitat que tindrem
-dt_BESS, dt_plus_BESS, dt_minus_BESS = bateria.flex(kwh, SoC)
+# #donada la simulacio calculem flexivilitat que tindrem
+# dt_BESS, dt_plus_BESS, dt_minus_BESS = bateria.flex(kwh, SoC)
 
-##visualitzem (positiu bateria consumeix de xarxa - Negatiu injecta)
-import matplotlib.pyplot as plt
-plt.figure()
-plt.plot(dt_BESS, label='Consum Bateria',  color='k')
-plt.plot(dt_minus_BESS+dt_BESS, label='Consum minim',  color='b', linestyle='-.')
-plt.plot(dt_plus_BESS+dt_BESS, label='Consum maxim',   color='r', linestyle='-.')
-plt.legend()
-plt.show()
+# ##visualitzem (positiu bateria consumeix de xarxa - Negatiu injecta)
+# import matplotlib.pyplot as plt
+# plt.figure()
+# plt.plot(dt_BESS, label='Consum Bateria',  color='k')
+# plt.plot(dt_minus_BESS+dt_BESS, label='Consum minim',  color='b', linestyle='-.')
+# plt.plot(dt_plus_BESS+dt_BESS, label='Consum maxim',   color='r', linestyle='-.')
+# plt.legend()
+# plt.show()
