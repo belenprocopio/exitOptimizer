@@ -10,7 +10,7 @@ t_ini="2025-03-26T00:00:00"
 t_fi="2025-03-27T00:00:00"
 
 #especifiquem Id que volem
-id_sensor = "sensor.sunvec_capacidad_bateria_master"
+id_sensor = "sensor.sunvec_potencia_paneles_master"
              
 
 #preparem la url de la api corresponent a la id i periode que volem descarregar
