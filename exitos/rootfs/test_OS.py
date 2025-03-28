@@ -33,13 +33,13 @@ for i in range(0,24):
 kwh, SoC = bateria.simula(c)
 
 #donada la simulacio calculem flexivilitat que tindrem
-dt_BESS, dt_plus_BESS, dt_minus_BESS = bateria.flex(kwh, SoC)
+# dt_BESS, dt_plus_BESS, dt_minus_BESS = bateria.flex(kwh, SoC)
 
-##visualitzem (positiu bateria consumeix de xarxa - Negatiu injecta)
-import matplotlib.pyplot as plt
-plt.figure()
-plt.plot(dt_BESS, label='Consum Bateria',  color='k')
-plt.plot(dt_minus_BESS+dt_BESS, label='Consum minim',  color='b', linestyle='-.')
-plt.plot(dt_plus_BESS+dt_BESS, label='Consum maxim',   color='r', linestyle='-.')
-plt.legend()
-plt.show()
+# ##visualitzem (positiu bateria consumeix de xarxa - Negatiu injecta)
+# import matplotlib.pyplot as plt
+# plt.figure()
+# plt.plot(dt_BESS, label='Consum Bateria',  color='k')
+# plt.plot(dt_minus_BESS+dt_BESS, label='Consum minim',  color='b', linestyle='-.')
+# plt.plot(dt_plus_BESS+dt_BESS, label='Consum maxim',   color='r', linestyle='-.')
+# plt.legend()
+# plt.show()
