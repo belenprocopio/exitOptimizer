@@ -13,6 +13,7 @@ RUN apt update \
 # ADD ./rootfs/sqlDB.py .
 ADD ./rootfs/BESS_lab.py .
 ADD ./rootfs/OS_lab.py .
+ADD ./rootfs/test_OS.py .
 # COPY ./rootfs/www /www/
 # COPY ./rootfs/images/ /images/
 #COPY ./rootfs/optimalScheduler /optimalScheduler/
