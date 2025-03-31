@@ -1,6 +1,6 @@
 from requests import post
 
-def post_state(id_sensor,state,unit_of_measurement):
+def post_state(id_sensor,state):
   #token api interna.
   token = os.environ.get('SUPERVISOR_TOKEN')
   
@@ -11,7 +11,7 @@ def post_state(id_sensor,state,unit_of_measurement):
     "content-type": "application/json",
   }
   
-  data = {"state": state, "attributes": {"unit_of_measurement": unit_of_measurement}}
+  data = {"state": state}
 
   response = post(url, headers=headers, json=data)
   print(response.text)
