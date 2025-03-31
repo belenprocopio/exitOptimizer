@@ -6,6 +6,6 @@
 echo "Starting OS_lab.py..."
 python3 test_OS.py
 # python3 OS_lab.py
-python3 price.py
+# python3 price.py
 python3 -m http.server 55023
 # python3 server.py
