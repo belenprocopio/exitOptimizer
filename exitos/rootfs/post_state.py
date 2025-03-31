@@ -1,4 +1,5 @@
 from requests import post
+import os
 
 def post_state(id_sensor,state):
   #token api interna.
