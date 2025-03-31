@@ -15,4 +15,4 @@ def post_state(id_sensor,state):
   data = {"state": state}
 
   response = post(url, headers=headers, json=data)
-  print(response.text)
+  # print(response.text)
