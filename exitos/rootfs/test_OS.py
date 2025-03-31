@@ -51,9 +51,9 @@ kwh_slave, SoC_slave = bateria_slave.simula(c_slave)
 print("Simulacion Finalizada")
 
 print("Publicando Estados:")
-post_state.post_state(input_select.control_optimo_bateria_master,BESS[0])
+post_state.post_state("input_select.control_optimo_bateria_master",BESS[0])
 print("Control Master Publicado: ", BESS[0])
-post_state.post_state(input_select.control_optimo_bateria_slave_1,BESS[24])
+post_state.post_state("input_select.control_optimo_bateria_slave_1",BESS[24])
 print("Control Slave Publicado: ", BESS[24])
 
 #donada la simulacio calculem flexivilitat que tindrem
