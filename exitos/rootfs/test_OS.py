@@ -11,8 +11,8 @@ Loads = [ 592.45634747, 592.49635485, 591.85913229, 587.32300037, 586.73134253, 
 PV=[5.94394677e+00,1.24269512e+00,9.34323393e-02,9.85697932e-02,4.45894808e-01,1.50230271e+02,7.28816702e+02,1.38984333e+03,1.98963365e+03,2.41026367e+03,2.53855949e+03,2.54364465e+03,1.89310506e+03,1.97221394e+03,1.47734965e+03,1.33669594e+03,4.51399602e+02,1.49279818e+02,3.94424950e+01,2.60363683e+01,1.23473593e+00,8.13592035e-02,2.45826099e-01,4.26342606e-01]
 
 print("Lectura de variables")
-bat_master = download_state.download_state("sensor.sunvec_capacidad_bateria_master")
-bat_slave = download_state.download_state("sensor.sunvec_capacidad_bateria_slave_1")
+bat_master = download_state.download_state("sensor.sunvec_capacidad_bateria_master")/100
+bat_slave = download_state.download_state("sensor.sunvec_capacidad_bateria_slave_1")/100
 print("Bateria Master:")
 print(bat_master)
 print("Bateria Slave:")
