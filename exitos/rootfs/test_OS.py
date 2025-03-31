@@ -49,6 +49,12 @@ kwh_slave, SoC_slave = bateria_slave.simula(c_slave)
 #kwh negativo: extraido de la red; positivo: inyectado
 print("Simulacion Finalizada")
 
+print("Publicando Estados:")
+
+print("Control Master Publicado:")
+
+print("Control Slave Publicado:")
+
 #donada la simulacio calculem flexivilitat que tindrem
 # dt_BESS_master, dt_plus_BESS_master, dt_minus_BESS_master = bateria_master.flex(kwh_master, SoC_master)
 # dt_BESS_slave, dt_plus_BESS_slave, dt_minus_BESS_slave = bateria_slave.flex(kwh_slave, SoC_slave)
