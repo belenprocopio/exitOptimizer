@@ -34,3 +34,5 @@ else:
     
 print("Sensor:")
 print(sensor_data_historic)
+print("State:")
+print(sensor_data_historic['state'])
