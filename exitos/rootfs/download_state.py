@@ -33,4 +33,5 @@ def download_state(id_sensor):
       print("Request failed with status code: ", response.status_code)
       sensor_data_historic = pd.DataFrame()
 
-  return(sensor_data_historic['state'][0])
+  state = float(sensor_data_historic['state'][0])
+  return(state)
