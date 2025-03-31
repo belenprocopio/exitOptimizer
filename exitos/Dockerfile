@@ -14,6 +14,7 @@ RUN apt update \
 ADD ./rootfs/BESS_lab.py .
 ADD ./rootfs/OS_lab.py .
 ADD ./rootfs/test_OS.py .
+ADD ./rootfs/download_intern.py .
 ADD ./rootfs/download_state.py .
 # COPY ./rootfs/www /www/
 # COPY ./rootfs/images/ /images/
