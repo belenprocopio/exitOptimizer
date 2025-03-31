@@ -10,7 +10,7 @@ id_sensor = "sensor.sunvec_potencia_paneles_master"
              
 
 #preparem la url de la api corresponent a la id i periode que volem descarregar
-url = "http://supervisor/core/api/states/sensor.sunvec_potencia_paneles_master"
+url = "http://supervisor/core/api/states/"+id_sensor
 
 headers = {
     "Authorization": "Bearer "+token,
