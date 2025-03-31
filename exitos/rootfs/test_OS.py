@@ -5,6 +5,7 @@ Created on Tue Mar 18 14:55:52 2025
 @author: Belen
 """
 import download_state
+import post_state
 import OS_lab as OS_lab
 
 Loads = [ 592.45634747, 592.49635485, 591.85913229, 587.32300037, 586.73134253, 658.20264316, 764.18414501, 892.49415179,1059.20503953,1139.24205145,1047.32752325, 911.3889703 , 830.37283932, 810.47591246, 725.17024209, 655.69050001, 633.23086019, 656.17916226, 674.2013454 , 613.44323685, 630.28952584, 623.30421259, 622.07467228, 615.39167492]
@@ -50,10 +51,10 @@ kwh_slave, SoC_slave = bateria_slave.simula(c_slave)
 print("Simulacion Finalizada")
 
 print("Publicando Estados:")
-
-print("Control Master Publicado:")
-
-print("Control Slave Publicado:")
+post_state.post_state(input_select.control_optimo_bateria_master,BESS[0])
+print("Control Master Publicado: ", BESS[0])
+post_state.post_state(input_select.control_optimo_bateria_slave_1,BESS[24])
+print("Control Slave Publicado: ", BESS[24])
 
 #donada la simulacio calculem flexivilitat que tindrem
 # dt_BESS_master, dt_plus_BESS_master, dt_minus_BESS_master = bateria_master.flex(kwh_master, SoC_master)
