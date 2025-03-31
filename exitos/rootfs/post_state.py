@@ -6,7 +6,7 @@ def post_state(id_sensor,state):
   token = os.environ.get('SUPERVISOR_TOKEN')
   
   #preparem la url de la api corresponent a la id que volem canviar
-  url = "http://localhost:8123/api/states/"+id_sensor
+  url = "http://supervisor/core/api/states/"+id_sensor
   headers = {
     "Authorization": "Bearer " +token, 
     "content-type": "application/json",
