@@ -4,28 +4,6 @@ Created on Tue Mar 18 14:55:52 2025
 
 @author: Belen
 """
-"""
-import pandas as pd
-
-print("Leyendo datos")
-df_potencia_ct = pd.read_csv("datos\potencia_ct.csv", delimiter=',')
-df_solar1 = pd.read_csv("datos\paneles_master.csv", delimiter=',')
-df_solar2 = pd.read_csv("datos\paneles_slave.csv", delimiter=',')
-
-df_potencia_ct["last_changed"] = pd.to_datetime(df_potencia_ct["last_changed"])
-df_solar1["last_changed"] = pd.to_datetime(df_solar1["last_changed"])
-df_solar2["last_changed"] = pd.to_datetime(df_solar2["last_changed"])
-
-
-
-df_potencia_ct_resampled = df_potencia_ct.set_index("last_changed").resample("1h").first().reset_index()
-df_solar1_resampled = df_solar1.set_index("last_changed").resample("1h").first().reset_index().fillna(0)
-df_solar2_resampled = df_solar2.set_index("last_changed").resample("1h").first().reset_index().fillna(0)
-
-df_potencia_ct_resampled["state"] = pd.to_numeric(df_potencia_ct_resampled["state"],errors='coerce')
-df_solar1_resampled["state"] = pd.to_numeric(df_solar1_resampled["state"],errors='coerce')
-df_solar2_resampled["state"] = pd.to_numeric(df_solar2_resampled["state"],errors='coerce')
-"""
 
 import OS_lab as OS_lab
 
@@ -33,34 +11,8 @@ Loads = [ 592.45634747, 592.49635485, 591.85913229, 587.32300037, 586.73134253, 
 PV=[5.94394677e+00,1.24269512e+00,9.34323393e-02,9.85697932e-02,4.45894808e-01,1.50230271e+02,7.28816702e+02,1.38984333e+03,1.98963365e+03,2.41026367e+03,2.53855949e+03,2.54364465e+03,1.89310506e+03,1.97221394e+03,1.47734965e+03,1.33669594e+03,4.51399602e+02,1.49279818e+02,3.94424950e+01,2.60363683e+01,1.23473593e+00,8.13592035e-02,2.45826099e-01,4.26342606e-01]
 
 
-"""
-Loads = df_potencia_ct_resampled["state"].to_list()
-PV = df_solar1_resampled["state"].to_list() + df_solar2_resampled["state"].to_list()
-"""
 bat_master = 0.28
 bat_slave = 0.26
-
-
-"""
-Loads: consumo del edificio (kW)
-PV: producción solar (kW)
-bat: SoC inicial de la bateria
-"""
-
-"""
-max_len = 24
-if len(Loads) > max_len:
-    Loads = Loads[:max_len]
-if len(PV) > max_len:
-    PV = PV[:max_len]
-while len(PV) < len(Loads):
-    PV.append(0)
-
-Loads = [-x for x in Loads] #Cambio de signo
-#W a kW
-Loads = [x/1000 for x in Loads]
-PV = [x/1000 for x in PV]
-"""
 
 optimizer = OS_lab.OS_lab(building_dem=Loads,solar_prod=PV,bat_inicial_master=bat_master,bat_inicial_slave=bat_slave)
 
