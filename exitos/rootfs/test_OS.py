@@ -52,9 +52,9 @@ print("Simulacion Finalizada")
 
 print("Publicando Estados:")
 post_state.post_state("input_select.control_optimo_bateria_master",BESS[0])
-print("Control Master Publicado: ", BESS[0])
+print("Control Master Publicado: ", BESS[1])
 post_state.post_state("input_select.control_optimo_bateria_slave_1",BESS[24])
-print("Control Slave Publicado: ", BESS[24])
+print("Control Slave Publicado: ", BESS[25])
 
 #donada la simulacio calculem flexivilitat que tindrem
 # dt_BESS_master, dt_plus_BESS_master, dt_minus_BESS_master = bateria_master.flex(kwh_master, SoC_master)
