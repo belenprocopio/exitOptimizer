@@ -17,7 +17,7 @@ ADD ./rootfs/test_OS.py .
 # ADD ./rootfs/download_intern.py .
 ADD ./rootfs/download_state.py .
 ADD ./rootfs/post_state.py .
-ADD ./rootfs/price.py .
+ADD ./rootfs/elec_price.py .
 # COPY ./rootfs/www /www/
 # COPY ./rootfs/images/ /images/
 #COPY ./rootfs/optimalScheduler /optimalScheduler/
