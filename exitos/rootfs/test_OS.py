@@ -56,9 +56,9 @@ SoC_master = [round(num*100) for num in SoC_master]
 SoC_slave = [round(num*100) for num in SoC_slave]
 
 print("Publicando Estados:")
-post_state.post_state("input_select.modo_optimo_bateria_master",BESS[1])
+post_state.post_state("input_text.modo_optimo_bateria_master",BESS[1])
 print("Control Master Publicado: ", BESS[1])
-post_state.post_state("input_select.modo_optimo_bateria_slave",BESS[25])
+post_state.post_state("input_text.modo_optimo_bateria_slave",BESS[25])
 print("Control Slave Publicado: ", BESS[25])
 post_state.post_state("input_number.potencia_bateria_master",kwh_master[1])
 print("Potencia Master Publicada: ", kwh_master[1])
@@ -69,8 +69,6 @@ print("SoC Master Publicado: ", SoC_master[1])
 post_state.post_state("input_number.soc_bateria_slave",SoC_slave[1])
 print("SoC Slave Publicado: ", SoC_slave[1])
 
-post_state.post_state("input_text.text1",BESS[1])
-print("Text 1 Publicado: ", BESS[1])
 
 #donada la simulacio calculem flexivilitat que tindrem
 # dt_BESS_master, dt_plus_BESS_master, dt_minus_BESS_master = bateria_master.flex(kwh_master, SoC_master)
