@@ -50,10 +50,10 @@ kwh_slave, SoC_slave = bateria_slave.simula(c_slave)
 #kwh negativo: extraido de la red; positivo: inyectado
 print("Simulacion Finalizada")
 
-kwh_master = round(kwh_master,2)
-kwh_slave = round(kwh_slave,2)
-SoC_master = round(SoC_master*100)
-SoC_slave = round(SoC_slave*100)
+kwh_master = [round(num,2) for num in kwh_master]
+kwh_slave = [round(num,2) for num in kwh_slave]
+SoC_master = [round(num*100) for num in SoC_master]
+SoC_slave = [round(num*100) for num in SoC_slave]
 
 print("Publicando Estados:")
 post_state.post_state("input_select.modo_optimo_bateria_master",BESS[1])
