@@ -7,6 +7,7 @@ Created on Tue Mar 18 14:55:52 2025
 import download_state
 import post_state
 import OS_lab as OS_lab
+import time
 
 Loads = [ 592.45634747, 592.49635485, 591.85913229, 587.32300037, 586.73134253, 658.20264316, 764.18414501, 892.49415179,1059.20503953,1139.24205145,1047.32752325, 911.3889703 , 830.37283932, 810.47591246, 725.17024209, 655.69050001, 633.23086019, 656.17916226, 674.2013454 , 613.44323685, 630.28952584, 623.30421259, 622.07467228, 615.39167492]
 PV = [5.94394677e+00,1.24269512e+00,9.34323393e-02,9.85697932e-02,4.45894808e-01,1.50230271e+02,7.28816702e+02,1.38984333e+03,1.98963365e+03,2.41026367e+03,2.53855949e+03,2.54364465e+03,1.89310506e+03,1.97221394e+03,1.47734965e+03,1.33669594e+03,4.51399602e+02,1.49279818e+02,3.94424950e+01,2.60363683e+01,1.23473593e+00,8.13592035e-02,2.45826099e-01,4.26342606e-01]
@@ -56,22 +57,22 @@ SoC_master = [round(num*100) for num in SoC_master]
 SoC_slave = [round(num*100) for num in SoC_slave]
 
 print("Publicando Estados:")
-post_state.post_state("input_text.modo_optimo_bateria_master",BESS[1])
-print("Control Master Publicado: ", BESS[1])
-post_state.post_state("input_text.modo_optimo_bateria_slave",BESS[25])
-print("Control Slave Publicado: ", BESS[25])
-post_state.post_state("input_number.potencia_bateria_master",kwh_master[1])
-print("Potencia Master Publicada: ", kwh_master[1])
-post_state.post_state("input_number.potencia_bateria_slave",kwh_slave[1])
-print("Potencia Slave Publicada: ", kwh_slave[1])
-post_state.post_state("input_number.soc_bateria_master",SoC_master[1])
-print("SoC Master Publicado: ", SoC_master[1])
-post_state.post_state("input_number.soc_bateria_slave",SoC_slave[1])
-print("SoC Slave Publicado: ", SoC_slave[1])
+for i in range(0,3):
+    time.sleep(10)
+    post_state.post_state("input_text.modo_optimo_bateria_master",BESS[i])
+    print("Control Master Valor ",i," Publicado: ", BESS[i])
+    post_state.post_state("input_text.modo_optimo_bateria_slave",BESS[i+24])
+    print("Control Slave Valor ",i," Publicado: ", BESS[i+24])
+    post_state.post_state("input_number.potencia_bateria_master",kwh_master[i])
+    print("Potencia Master Valor ",i," Publicada: ", kwh_master[i])
+    post_state.post_state("input_number.potencia_bateria_slave",kwh_slave[i])
+    print("Potencia Slave Valor ",i," Publicada: ", kwh_slave[i])
+    post_state.post_state("input_number.soc_bateria_master",SoC_master[i])
+    print("SoC Master Valor ",i," Publicado: ", SoC_master[i])
+    post_state.post_state("input_number.soc_bateria_slave",SoC_slave[i])
+    print("SoC Slave Valor ",i," Publicado: ", SoC_slave[i])
 
-post_state.post_state("input_text.text1",kwh_master)
-print("Text1: ", kwh_master)
-
+print("Todos los estados publicados")
 #donada la simulacio calculem flexivilitat que tindrem
 # dt_BESS_master, dt_plus_BESS_master, dt_minus_BESS_master = bateria_master.flex(kwh_master, SoC_master)
 # dt_BESS_slave, dt_plus_BESS_slave, dt_minus_BESS_slave = bateria_slave.flex(kwh_slave, SoC_slave)
