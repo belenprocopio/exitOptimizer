@@ -26,6 +26,8 @@ prices = elec_price()
 print("Precios:")
 print(prices)
 
+print("Variables listas")
+
 optimizer = OS_lab.OS_lab(elec_prices=prices,building_dem=Loads,solar_prod=PV,bat_inicial_master=bat_master,bat_inicial_slave=bat_slave)
 
 print("Optimizando")
@@ -63,7 +65,7 @@ SoC_master = [round(num*100) for num in SoC_master]
 SoC_slave = [round(num*100) for num in SoC_slave]
 
 print("Publicando Estados:")
-for i in range(0,5):
+for i in range(0,24):
     post_state.post_state("input_text.modo_optimo_bateria_master",BESS[i])
     print("Control Master Valor ",i," Publicado: ", BESS[i])
     post_state.post_state("input_text.modo_optimo_bateria_slave",BESS[i+24])
@@ -77,7 +79,7 @@ for i in range(0,5):
     post_state.post_state("input_number.soc_bateria_slave",SoC_slave[i])
     print("SoC Slave Valor ",i," Publicado: ", SoC_slave[i])
     if i < 23:
-        time.sleep(20)
+        time.sleep(3600)
 
 print("Todos los estados publicados")
 #donada la simulacio calculem flexivilitat que tindrem
