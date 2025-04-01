@@ -70,7 +70,8 @@ for i in range(0,24):
     print("SoC Master Valor ",i," Publicado: ", SoC_master[i])
     post_state.post_state("input_number.soc_bateria_slave",SoC_slave[i])
     print("SoC Slave Valor ",i," Publicado: ", SoC_slave[i])
-    time.sleep(3600)
+    if i < 23:
+        time.sleep(3600)
 
 print("Todos los estados publicados")
 #donada la simulacio calculem flexivilitat que tindrem
