@@ -57,8 +57,8 @@ SoC_master = [round(num*100) for num in SoC_master]
 SoC_slave = [round(num*100) for num in SoC_slave]
 
 print("Publicando Estados:")
-for i in range(0,3):
-    time.sleep(10)
+for i in range(0,24):
+    time.sleep(3600)
     post_state.post_state("input_text.modo_optimo_bateria_master",BESS[i])
     print("Control Master Valor ",i," Publicado: ", BESS[i])
     post_state.post_state("input_text.modo_optimo_bateria_slave",BESS[i+24])
