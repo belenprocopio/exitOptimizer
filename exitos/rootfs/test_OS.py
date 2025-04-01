@@ -58,7 +58,6 @@ SoC_slave = [round(num*100) for num in SoC_slave]
 
 print("Publicando Estados:")
 for i in range(0,24):
-    time.sleep(3600)
     post_state.post_state("input_text.modo_optimo_bateria_master",BESS[i])
     print("Control Master Valor ",i," Publicado: ", BESS[i])
     post_state.post_state("input_text.modo_optimo_bateria_slave",BESS[i+24])
@@ -71,6 +70,7 @@ for i in range(0,24):
     print("SoC Master Valor ",i," Publicado: ", SoC_master[i])
     post_state.post_state("input_number.soc_bateria_slave",SoC_slave[i])
     print("SoC Slave Valor ",i," Publicado: ", SoC_slave[i])
+    time.sleep(3600)
 
 print("Todos los estados publicados")
 #donada la simulacio calculem flexivilitat que tindrem
