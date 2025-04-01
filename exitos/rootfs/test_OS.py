@@ -69,6 +69,9 @@ print("SoC Master Publicado: ", SoC_master[1])
 post_state.post_state("input_number.soc_bateria_slave",SoC_slave[1])
 print("SoC Slave Publicado: ", SoC_slave[1])
 
+post_state.post_state("input_text.text1",BESS[1])
+print("Text 1 Publicado: ", BESS[1])
+
 #donada la simulacio calculem flexivilitat que tindrem
 # dt_BESS_master, dt_plus_BESS_master, dt_minus_BESS_master = bateria_master.flex(kwh_master, SoC_master)
 # dt_BESS_slave, dt_plus_BESS_slave, dt_minus_BESS_slave = bateria_slave.flex(kwh_slave, SoC_slave)
