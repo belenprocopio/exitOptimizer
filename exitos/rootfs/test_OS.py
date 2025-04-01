@@ -4,9 +4,11 @@ Created on Tue Mar 18 14:55:52 2025
 
 @author: Belen
 """
+import OS_lab as OS_lab
+from elec_price import elec_price
+
 import download_state
 import post_state
-import OS_lab as OS_lab
 import time
 
 Loads = [ 592.45634747, 592.49635485, 591.85913229, 587.32300037, 586.73134253, 658.20264316, 764.18414501, 892.49415179,1059.20503953,1139.24205145,1047.32752325, 911.3889703 , 830.37283932, 810.47591246, 725.17024209, 655.69050001, 633.23086019, 656.17916226, 674.2013454 , 613.44323685, 630.28952584, 623.30421259, 622.07467228, 615.39167492]
@@ -20,7 +22,11 @@ print(bat_master)
 print("Bateria Slave:")
 print(bat_slave)
 
-optimizer = OS_lab.OS_lab(building_dem=Loads,solar_prod=PV,bat_inicial_master=bat_master,bat_inicial_slave=bat_slave)
+prices = elec_price()
+print("Precios:")
+print(prices)
+
+optimizer = OS_lab.OS_lab(elec_prices=prices,building_dem=Loads,solar_prod=PV,bat_inicial_master=bat_master,bat_inicial_slave=bat_slave)
 
 print("Optimizando")
 BESS = optimizer.optimize()
