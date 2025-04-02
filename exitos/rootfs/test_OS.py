@@ -59,8 +59,8 @@ kwh_slave, SoC_slave = bateria_slave.simula(c_slave)
 #kwh negativo: extraido de la red; positivo: inyectado
 print("Simulacion Finalizada")
 
-kwh_master = [round(num,2) for num in kwh_master]
-kwh_slave = [round(num,2) for num in kwh_slave]
+wh_master = [round(num*1000) for num in kwh_master]
+wh_slave = [round(num*1000) for num in kwh_slave]
 SoC_master = [round(num*100) for num in SoC_master]
 SoC_slave = [round(num*100) for num in SoC_slave]
 
@@ -70,10 +70,10 @@ for i in range(0,24):
     print("Control Master Valor ",i," Publicado: ", BESS[i])
     post_state.post_state("input_text.modo_optimo_bateria_slave",BESS[i+24])
     print("Control Slave Valor ",i," Publicado: ", BESS[i+24])
-    post_state.post_state("input_number.potencia_bateria_master",kwh_master[i])
-    print("Potencia Master Valor ",i," Publicada: ", kwh_master[i])
-    post_state.post_state("input_number.potencia_bateria_slave",kwh_slave[i])
-    print("Potencia Slave Valor ",i," Publicada: ", kwh_slave[i])
+    post_state.post_state("input_number.potencia_bateria_master",wh_master[i])
+    print("Potencia Master Valor ",i," Publicada: ", wh_master[i])
+    post_state.post_state("input_number.potencia_bateria_slave",wh_slave[i])
+    print("Potencia Slave Valor ",i," Publicada: ", wh_slave[i])
     post_state.post_state("input_number.soc_bateria_master",SoC_master[i])
     print("SoC Master Valor ",i," Publicado: ", SoC_master[i])
     post_state.post_state("input_number.soc_bateria_slave",SoC_slave[i])
