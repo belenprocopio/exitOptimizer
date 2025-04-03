@@ -98,8 +98,8 @@ class BESS_lab:
             power = self.max_power_charge
         elif method == 'discharge':
             power = self.max_power_discharge
-        # elif method == 'solar':
-        #     power = production - load
+        elif method == 'solar':
+            power = production - load
         elif method == 'off':
             power = 0
         else:
