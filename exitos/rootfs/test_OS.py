@@ -66,6 +66,8 @@ wh_slave = [round(num*1000) for num in kwh_slave]
 SoC_master = [round(num*100) for num in SoC_master]
 SoC_slave = [round(num*100) for num in SoC_slave]
 
+print("Control optimo: ", BESS)
+
 print("Publicando Estados:")
 for i in range(0,24):
     post_state.post_state("input_text.modo_optimo_bateria_master",BESS[i])
