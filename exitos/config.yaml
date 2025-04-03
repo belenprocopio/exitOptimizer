@@ -33,10 +33,10 @@ map:
 #prioritat en el boot
 startup: services
 
-# #ports que utilitzarem amb la nostra webbapp 
-# ports:
-#   55023/tcp: 55023
+#ports que utilitzarem amb la nostra webbapp 
+ports:
+  55023/tcp: 55023
 
-# #url i port de entrada a la webapp (true = /) - port ha de ser on corre el server de bottle
-# ingress: true
-# ingress_port: 55023
+#url i port de entrada a la webapp (true = /) - port ha de ser on corre el server de bottle
+ingress: true
+ingress_port: 55023
