@@ -4,7 +4,7 @@
 # mkdir -p /share/exitos/
 
 echo "Starting OS_lab.py..."
-python3 test_OS.py
+python3 -u test_OS.py
 # python3 OS_lab.py
 # python3 price.py
 python3 -m http.server 55023
