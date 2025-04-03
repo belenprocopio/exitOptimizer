@@ -64,6 +64,8 @@ class OS_lab():
                 m='discharge'
             if x[i] == 2:
                 m='charge'
+            if x[i] == 3:
+                m='solar'
             
             if i in range(0,24):
                 powers_1.append( self.Bess_master.control(method=m,load = self.ec[i], production = self.sp[i]))
@@ -101,7 +103,7 @@ class OS_lab():
         if self.alg=='PSO':
             import pyswarms as ps
             particules=24# Create bounds
-            max_bound = [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+            max_bound = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
             min_bound = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             bounds = (min_bound, max_bound)
             
@@ -120,7 +122,7 @@ class OS_lab():
             
         elif self.alg=='SA':
             from scipy.optimize import dual_annealing
-            max_bound = [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+            max_bound = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
             min_bound = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             res=dual_annealing(self.cost, bounds=list(zip(min_bound,max_bound)), no_local_search = False)
             x=res.x
@@ -128,7 +130,7 @@ class OS_lab():
             
         elif self.alg=='DE':
             from scipy.optimize import differential_evolution
-            max_bound = [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+            max_bound = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
             min_bound = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             
             def f(x):
@@ -139,7 +141,7 @@ class OS_lab():
                        
         elif self.alg=='least_squares':
             from scipy.optimize import least_squares
-            max_bound = [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+            max_bound = [3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]
             min_bound = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             
             res=least_squares(self.cost,x0=np.array(max_bound)/2, bounds=(min_bound,max_bound))
@@ -157,6 +159,8 @@ class OS_lab():
                 m='discharge'
             if x[i] == 2:
                 m='charge'
+            if x[i] == 3:
+                m='solar'
             BESS.append(m)
         
         
