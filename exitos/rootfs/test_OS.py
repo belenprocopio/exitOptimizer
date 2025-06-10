@@ -162,14 +162,14 @@ print("Control optimo: ", BESS)
 print("Publicando Estados:")
 for i in range(0,24):
     #Control bateria
-    if BESS[i] == 'off':
-        m="Stop force charge&discharge"
-    if BESS[i] == 'discharge':
-        m="Force discharge"
-    if BESS[i] == 'solar':
-        m="Force charge"
-    post_state.post_state("select.sunvec_control_manual_baterias",m)
-    print("select.sunvec_control_manual_baterias Publicado: ", m)
+    # if BESS[i] == 'off':
+    #     m="Stop force charge&discharge"
+    # if BESS[i] == 'discharge':
+    #     m="Force discharge"
+    # if BESS[i] == 'solar':
+    #     m="Force charge"
+    # post_state.post_state("select.sunvec_control_manual_baterias",m)
+    # print("select.sunvec_control_manual_baterias Publicado: ", m)
 
     post_state.post_state("input_text.modo_optimo_bateria_master",BESS[i])
     print("Control Bateria 1 Valor ",i," Publicado: ", BESS[i])
