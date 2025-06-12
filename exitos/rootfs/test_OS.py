@@ -29,7 +29,7 @@ Cambiar "Consum_Data.xlsx" por el archivo ftp introducido en Home Assistant
 
 # Leer consumo y excedente de los participantes
 df_consum = pd.read_excel(
-    "Consum_Data.xlsx",
+    "./share/Consum_Data.xlsx",
     sheet_name="Consum i Excedents",
     usecols=",".join(columnas_consum),
     skiprows=1,
