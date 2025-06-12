@@ -21,6 +21,12 @@ columnas_consum = [excel_column_name(i) for i in range(3, 3 + 2*42, 2)]
 # Generar las primeras 42 columnas alternas empezando por D (índice 4 en Excel)
 columnas_excedent = [excel_column_name(i) for i in range(4, 4 + 2*42, 2)]
 
+"""
+
+Cambiar "Consum_Data.xlsx" por el archivo ftp introducido en Home Assistant
+
+"""
+
 # Leer consumo y excedente de los participantes
 df_consum = pd.read_excel(
     "Consum_Data.xlsx",
@@ -101,6 +107,11 @@ bat: SoC inicial de la bateria
 
 print("Lectura de variables de HA")
 
+"""
+Cambiar "sensor.sunvec_capacidad_bateria_master" y "sensor.sunvec_capacidad_bateria_slave_1"
+Por: "sensor.sunvec_capacidad_bateria_1" y "sensor.sunvec_capacidad_bateria_2"
+"""
+
 #Carga inicial de las baterias
 #Lectura desde Home Assistant
 bat_1 = download_state.download_state("sensor.sunvec_capacidad_bateria_master")/100
@@ -171,23 +182,23 @@ for i in range(0,24):
     # post_state.post_state("select.sunvec_control_manual_baterias",m)
     # print("select.sunvec_control_manual_baterias Publicado: ", m)
 
-    post_state.post_state("input_text.modo_optimo_bateria_master",BESS[i])
+    post_state.post_state("input_text.modo_optimo_bateria_1",BESS[i])
     print("Control Bateria 1 Valor ",i," Publicado: ", BESS[i])
-    post_state.post_state("input_text.modo_optimo_bateria_slave",BESS[i])
+    post_state.post_state("input_text.modo_optimo_bateria_2",BESS[i])
     print("Control Bateria 2 Valor ",i," Publicado: ", BESS[i])
-    post_state.post_state("input_number.prediccion_potencia_bateria_master",wh[i]/num_bat)
+    post_state.post_state("input_number.prediccion_potencia_bateria_1",wh[i]/num_bat)
     print("Potencia Bateria 1 Valor ",i," Publicada: ", wh[i]/num_bat)
-    post_state.post_state("input_number.prediccion_potencia_bateria_slave",wh[i]/num_bat)
+    post_state.post_state("input_number.prediccion_potencia_bateria_2",wh[i]/num_bat)
     print("Potencia Bateria 2 Valor ",i," Publicada: ", wh[i]/num_bat)
-    post_state.post_state("input_number.prediccion_soc_bateria_master",SoC[i])
+    post_state.post_state("input_number.prediccion_soc_bateria_1",SoC[i])
     print("SoC Bateria 1 Valor ",i," Publicado: ", SoC[i])
-    post_state.post_state("input_number.prediccion_soc_bateria_slave",SoC[i])
+    post_state.post_state("input_number.prediccion_soc_bateria_2",SoC[i])
     print("SoC Bateria 2 Valor ",i," Publicado: ", SoC[i])
     time.sleep(3600)
 
-post_state.post_state("input_text.modo_optimo_bateria_master",'off')
+post_state.post_state("input_text.modo_optimo_bateria_1",'off')
 print("Estado Final Control Bateria 1 Publicado: ", 'off')
-post_state.post_state("input_text.modo_optimo_bateria_slave",'off')
+post_state.post_state("input_text.modo_optimo_bateria_2",'off')
 print("Estado Final Control Bateria 2 Publicado: ", 'off')
 
 print("Todos los estados publicados")
