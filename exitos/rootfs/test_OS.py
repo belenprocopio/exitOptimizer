@@ -21,12 +21,6 @@ columnas_consum = [excel_column_name(i) for i in range(3, 3 + 2*42, 2)]
 # Generar las primeras 42 columnas alternas empezando por D (índice 4 en Excel)
 columnas_excedent = [excel_column_name(i) for i in range(4, 4 + 2*42, 2)]
 
-"""
-
-Cambiar "Consum_Data.xlsx" por el archivo ftp introducido en Home Assistant
-
-"""
-
 # Leer consumo y excedente de los participantes
 df_consum = pd.read_excel(
     "./share/Consum_Data.xlsx",
@@ -37,7 +31,7 @@ df_consum = pd.read_excel(
 ).fillna(0)
 
 df_excedent = pd.read_excel(
-    "Consum_Data.xlsx",
+    "./share/Consum_Data.xlsx",
     sheet_name="Consum i Excedents",
     usecols=",".join(columnas_excedent),
     skiprows=1,
@@ -45,7 +39,7 @@ df_excedent = pd.read_excel(
 ).fillna(0)
 
 df_preu_consum = pd.read_excel(
-    "Consum_Data.xlsx",
+    "./share/Consum_Data.xlsx",
     sheet_name="Dades",
     usecols='K',
     skiprows=1,
@@ -53,7 +47,7 @@ df_preu_consum = pd.read_excel(
 ).fillna(0)
 
 df_preu_excedent = pd.read_excel(
-    "Consum_Data.xlsx",
+    "./share/Consum_Data.xlsx",
     sheet_name="Dades",
     usecols='N',
     skiprows=1,
@@ -61,7 +55,7 @@ df_preu_excedent = pd.read_excel(
 ).fillna(0)
 
 df_coef = pd.read_excel(
-    "Consum_Data.xlsx",
+    "./share/Consum_Data.xlsx",
     sheet_name="Dades",
     usecols='I',
     skiprows=1,
@@ -73,7 +67,7 @@ df_coef = pd.read_excel(
 # df_consum = df_consum.sum(axis=1)
 
 df_solar = pd.read_excel(
-    "Consum_Data.xlsx",
+    "./share/Consum_Data.xlsx",
     sheet_name="Generacio",
     usecols="C",
     # skiprows=1,
