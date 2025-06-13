@@ -174,6 +174,10 @@ for i in range(0,24):
     # if BESS[i] == 'solar':
     #     m="Force charge"
     # post_state.post_state("select.sunvec_control_manual_baterias",m)
+    """
+    Cambiar "select.sunvec_control_manual_baterias" por
+    "select.sunvec_control_manual_bateria_1" y "select.sunvec_control_manual_bateria_2"
+    """
     # print("select.sunvec_control_manual_baterias Publicado: ", m)
 
     post_state.post_state("input_text.modo_optimo_bateria_1",BESS[i])
